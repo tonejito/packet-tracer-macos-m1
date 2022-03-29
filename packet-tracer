@@ -7,10 +7,15 @@
 # This software is released under the terms of the "BSD 2-Clause License",
 # see LICENSE for more information.
 
+INTEL_ARCH="x86_64"
 VERSION="8.1.1"
+FOLDER_NAME="Cisco\ Packet\ Tracer\ ${VERSION}"
+APP_NAME="Cisco\ Packet\ Tracer\ ${VERSION}.app"
+
+# TODO: Test if the Packet Tracer folder and App exist
 
 set -x
 
 # Open the app on a Rosetta 2 shell for x86_64 (Intel)
-exec /usr/bin/arch -x86_64 /bin/zsh -c \
-  "open /Applications/Cisco\ Packet\ Tracer\ ${VERSION}/Cisco\ Packet\ Tracer\ ${VERSION}.app"
+exec /usr/bin/arch -${INTEL_ARCH} /bin/zsh -c \
+  "open --wait-apps /Applications/${FOLDER_NAME}/${APP_NAME}"
